@@ -4,7 +4,7 @@ dotenv.config()
 
 const secretKey = process.env.jwt_secret
 
-const expireIn = process.env.expireToken
+const expireIn = process.env.jwt_expires_in
  
 
 const generateToken = (user)=>{
