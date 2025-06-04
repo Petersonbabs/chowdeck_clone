@@ -1,6 +1,6 @@
 import React from 'react'
 
-const errorHandler = (err,req,res,) => {
+const errorHandler = (err,req,res) => {
   
 }
 
