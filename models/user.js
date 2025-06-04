@@ -4,5 +4,5 @@ const mongoose = require("mongoose")
 
 
 
-console("seunnnnn")
+console.log("seunnnnn")
 
