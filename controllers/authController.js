@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const userModel = require("../models/UserModel");
 
 const signup = (req,res,next)=>{
-    const {password, name, email} = req.body;
+    const {password} = req.body;
     try {
         const salt = bcrypt.genSalt(10);
         const hashedPassword = bcrypt.hash(password, salt);
@@ -13,9 +13,16 @@ const signup = (req,res,next)=>{
                 status: "error"
             })
         }
-        const userFirstName = name.split(" ")[0]
+        res.status(200).json({
+            message: "signup succcessful",
+            status: "success"
+        })
+        
     } catch (err) {
         console.log(err);
         next(err);
     }
+}
+module.exports = {
+    signup
 }
