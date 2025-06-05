@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const userModel = require("../models/UserModel");
+
 const signIn = async (req, res)=>{
     const {email,password} = req.body;
     try {
