@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const userModel = require("../models/UserModel");
+const generateToken = require("../utils/jwt");
 
 const signIn = async (req, res)=>{
     const {email,password} = req.body;
@@ -19,7 +20,7 @@ const signIn = async (req, res)=>{
                 message:"Email or Password incorrect"
             })
         }
-        const accessToken = jwt.sign({id:user._id, email:user.email}, process.env.jwt_secret, {expiresIn:process.env.jwt_expires_in});
+        const accessToken = generateToken(user);
         res.status(200).json({
             status:'success',
             message:'Sign in successfully',
