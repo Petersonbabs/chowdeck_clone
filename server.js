@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
 const connectToDb = require("./config/connectToDb")
+const authRouter = require("./routes/authRouter")
 const app = express()
 
 connectToDb()
@@ -15,3 +16,5 @@ const PORT = process.env.PORT || 4000
 app.listen(PORT, ()=>{
     console.log("App is running")
 })
+
+app.use('/api/user', authRouter)
